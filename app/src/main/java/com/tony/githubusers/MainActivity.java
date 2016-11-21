@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 JSONObject data = new JSONObject(response.body().string());
                                 name.setText(data.getString("name"));
+                                Glide.with(getApplicationContext())
+                                        .load(data.getString("avatar_url"))
+                                        .into(picture);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             } catch (IOException e) {
