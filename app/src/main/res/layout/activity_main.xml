@@ -33,8 +33,9 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_marginTop="20dp"
+        android:layout_margin="15dp"
         android:layout_width="match_parent"
+        android:scrollbarStyle="outsideInset"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -54,8 +55,14 @@
                 android:layout_gravity="center"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                app:srcCompat="@mipmap/ic_launcher"
                 android:id="@+id/imgAvatar" />
+
+            <TextView
+                android:text=" "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/txtBio" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

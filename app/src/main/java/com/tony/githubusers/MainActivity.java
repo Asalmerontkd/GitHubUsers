@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     EditText userName;
     TextView name;
     ImageView picture;
+    TextView bio;
 
 
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.etUserName);
         name = (TextView) findViewById(R.id.txtName);
         picture = (ImageView) findViewById(R.id.imgAvatar);
+        bio = (TextView) findViewById(R.id.txtBio);
     }
 
     public void buscar (View v)
@@ -61,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
                                 Glide.with(getApplicationContext())
                                         .load(data.getString("avatar_url"))
                                         .into(picture);
+                                bio.setText("Biografía: "+data.getString("bio")
+                                    +"\n\nRepositorios públicos: "+data.getInt("public_repos")
+                                    +"\nSeguidores: "+data.getInt("followers")
+                                    +"\nSiguiendo: "+data.getInt("following"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             } catch (IOException e) {
